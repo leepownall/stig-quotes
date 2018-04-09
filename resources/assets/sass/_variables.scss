@@ -1,0 +1,18 @@
+// Body
+$body-bg: #f5f8fa;
+
+// Typography
+$font-family-sans-serif: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+$twitter-blue: #1DA1F2;
+$twitter-green: #17bf63;
+$twitter-red: #e0245e;
+
+$theme-colors: () !default;
+$theme-colors: map-merge((
+        "twitter-blue": $twitter-blue,
+        "twitter-green": $twitter-green,
+        "twitter-red": $twitter-red,
+), $theme-colors);
