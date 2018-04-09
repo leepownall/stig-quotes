@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use App\Rules\MoreThanSomeSay;
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreQuoteRequest extends FormRequest
@@ -19,6 +18,7 @@ class StoreQuoteRequest extends FormRequest
             'quote' => [
                 'required',
                 new MoreThanSomeSay,
+                'max:280',
             ]
         ];
     }

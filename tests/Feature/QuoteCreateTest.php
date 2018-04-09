@@ -28,6 +28,26 @@ class QuoteCreateTest extends TestCase
     }
 
     /** @test **/
+    public function quote_cannot_be_more_than_280_characters()
+    {
+        $this->setUpFaker();
+
+        $quote = $this->faker->sentence(300);
+
+        $this
+            ->visitRoute('quotes.index')
+            ->type($quote, 'quote')
+            ->press('Submit')
+            ->within('.alert-danger', function () {
+                $this->seeText('The quote may not be greater than 280 characters.');
+            })
+            ->dontSeeInDatabase('quotes', [
+                'body' => $quote,
+                'user_id' => null,
+            ]);
+    }
+
+    /** @test **/
     public function visitor_can_create_a_quote()
     {
         $this
