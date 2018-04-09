@@ -5,6 +5,7 @@
   </button>
   <div class="dropdown-menu">
     <a class="dropdown-item" href="#">Settings</a>
+    <a class="dropdown-item" href="https://github.com/leepownall/stig-quotes" target="_blank">Contribute on GitHub</a>
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="{{ route('auth.logout') }}">Logout</a>
   </div>
