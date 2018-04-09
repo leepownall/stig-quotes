@@ -17,4 +17,4 @@ script: ./vendor/bin/phpunit --configuration phpunit.xml --coverage-clover ./tes
 
 after_success:
   - travis_retry php vendor/bin/php-coveralls
-  - chmod +x ./deploy.sh; ./deploy.sh
+  - chmod +x /home/forge/stigquotes.com/deploy.sh; /home/forge/stigquotes.com/deploy.sh
