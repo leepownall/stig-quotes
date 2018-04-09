@@ -19,6 +19,7 @@ class StoreQuoteRequest extends FormRequest
                 'required',
                 new MoreThanSomeSay,
                 'max:280',
+                'unique:quotes,body'
             ]
         ];
     }

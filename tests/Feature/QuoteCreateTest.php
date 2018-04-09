@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Quote;
 use App\User;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -45,6 +46,20 @@ class QuoteCreateTest extends TestCase
                 'body' => $quote,
                 'user_id' => null,
             ]);
+    }
+
+    /** @test **/
+    public function quote_cannot_a_duplicate()
+    {
+        factory(Quote::class)->create(['body' => 'Some say he really likes pies']);
+
+        $this
+            ->visitRoute('quotes.index')
+            ->type('he really likes pies', 'quote')
+            ->press('Submit')
+            ->within('.alert-danger', function () {
+                $this->seeText('The quote has already been taken.');
+            });
     }
 
     /** @test **/
