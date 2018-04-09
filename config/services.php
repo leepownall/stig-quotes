@@ -40,4 +40,8 @@ return [
         'client_secret' => env('TWITTER_CLIENT_SECRET'),
         'redirect' => 'https://stigquotes.test/login/callback',
     ],
+
+    'analytics' => [
+        'tracking_id' => env('GOOGLE_ANALYTICS_TRACKING_ID'),
+    ]
 ];
