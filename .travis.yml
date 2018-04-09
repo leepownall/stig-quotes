@@ -12,7 +12,7 @@ matrix:
     - php: hhvm
 
 install:
-  - composer require php-coveralls/php-coveralls:dev-master
+  - composer require php-coveralls/php-coveralls
   - composer install
 
 script: ./vendor/bin/phpunit --configuration phpunit.xml --coverage-clover ./tests/logs/clover.xml
