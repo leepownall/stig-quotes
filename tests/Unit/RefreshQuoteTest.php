@@ -30,14 +30,14 @@ class RefreshQuoteTest extends TestCase
         $tweet = factory(Tweet::class)->create([
             'quote_id' => $quote->id,
             'retweet_count' => 1,
-            'favourite_count' => 2,
+            'favorite_count' => 2,
         ]);
 
         Twitter::shouldReceive('getTweet')
             ->once()
             ->andReturn((object) [
                 'retweet_count' => 5,
-                'favourite_count' => 6,
+                'favorite_count' => 6,
             ]);
 
         Artisan::call('quote:refresh', ['quote' => $quote->id]);
@@ -45,7 +45,7 @@ class RefreshQuoteTest extends TestCase
         $this->seeInDatabase('tweets', [
             'id' => $tweet->id,
             'retweet_count' => 5,
-            'favourite_count' => 6,
+            'favorite_count' => 6,
         ]);
     }
 }
