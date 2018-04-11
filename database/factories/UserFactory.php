@@ -10,7 +10,6 @@ $factory->define(User::class, function (Faker $faker) {
         'token_secret' => str_random(),
         'name' => $faker->name,
         'nickname' => $faker->userName,
-        'email' => $faker->safeEmail,
         'avatar' => $faker->imageUrl,
         'remember_token' => str_random(10),
     ];

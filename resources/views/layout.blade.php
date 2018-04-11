@@ -10,9 +10,13 @@
 
     <title>Stig Quotes</title>
   </head>
-  <body class="bg-light">
+  <body class="bg-light d-flex flex-column" style="min-height: 100vh;">
     @include('navigation')
-    @yield('content')
+    <main class="flex-fill">
+      @include('partials.status')
+      @yield('content')
+    </main>
+    @include('footer')
     <script src="{{ mix('js/app.js') }}"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ config('services.analytics.tracking_id') }}"></script>
     <script>

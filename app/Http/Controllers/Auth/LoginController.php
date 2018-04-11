@@ -26,7 +26,6 @@ class LoginController extends Controller
                 'token_secret' => $user->tokenSecret,
                 'name' => $user->getName(),
                 'nickname' => $user->getNickname(),
-                'email' => $user->getEmail(),
                 'avatar' => $user->getAvatar(),
             ]
         );

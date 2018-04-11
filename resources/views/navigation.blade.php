@@ -2,7 +2,7 @@
   <div class="container">
     <ul class="navbar-nav flex-row float-right">
       <li class="nav-item pr-3 active">
-        <a class="nav-link" href="#">Latest <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{ route('quotes.index') }}">Latest <span class="sr-only">(current)</span></a>
       </li>
     </ul>
     @if(auth()->check())
