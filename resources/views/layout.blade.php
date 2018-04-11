@@ -20,7 +20,7 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', {{ config('services.analytics.tracking_id') }});
+      gtag('config', '{{ config('services.analytics.tracking_id') }}');
     </script>
   </body>
 </html>
