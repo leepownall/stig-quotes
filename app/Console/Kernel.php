@@ -17,6 +17,14 @@ class Kernel extends ConsoleKernel
          $schedule
              ->command('quote:tweet')
              ->hourly();
+
+        $schedule
+            ->command('tweets:refresh')
+            ->dailyAt('12:00');
+
+        $schedule
+            ->command('tweets:refresh')
+            ->dailyAt('00:00');
     }
 
     protected function commands(): void

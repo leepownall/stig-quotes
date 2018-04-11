@@ -5,7 +5,6 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Http\Request;
 
 class Quote extends Model
 {
@@ -41,7 +40,7 @@ class Quote extends Model
         return !is_null($this->tweets->last());
     }
 
-    public function getLastTweetedAtAttribute()
+    public function getLastTweetedAtAttribute(): string
     {
         $last = $this->tweets->last();
 

@@ -2,8 +2,10 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Carbon;
 
 class Tweet extends Model
 {
@@ -27,4 +29,9 @@ class Tweet extends Model
         'updated_at',
         'deleted_at',
     ];
+
+    public function scopeInThePastWeek(Builder $query): Builder
+    {
+        return $query->where('created_at', '>=', Carbon::parse('-1 week')->startOfDay());
+    }
 }
