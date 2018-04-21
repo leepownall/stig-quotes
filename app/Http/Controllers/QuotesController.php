@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\QuoteRequest;
+use App\Http\Requests\StoreQuoteRequest;
+use App\Http\Requests\UpdateQuoteRequest;
 use App\Quote;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -16,7 +17,7 @@ class QuotesController extends Controller
         return view('quotes.index', compact('quotes'));
     }
 
-    public function store(QuoteRequest $request): RedirectResponse
+    public function store(StoreQuoteRequest $request): RedirectResponse
     {
         Quote::create([
             'body' => $request->quote,
@@ -40,7 +41,7 @@ class QuotesController extends Controller
         return view('quotes.edit', compact('quote'));
     }
 
-    public function update(QuoteRequest $request, Quote $quote): RedirectResponse
+    public function update(UpdateQuoteRequest $request, Quote $quote): RedirectResponse
     {
         $quote->update(['body' => $request->quote]);
 

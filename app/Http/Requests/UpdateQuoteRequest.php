@@ -6,7 +6,7 @@ use App\Rules\MoreThanSomeSay;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class QuoteRequest extends FormRequest
+class UpdateQuoteRequest extends FormRequest
 {
     public function authorize(): bool
     {
