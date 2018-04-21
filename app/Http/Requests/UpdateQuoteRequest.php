@@ -4,8 +4,9 @@ namespace App\Http\Requests;
 
 use App\Rules\MoreThanSomeSay;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class StoreQuoteRequest extends FormRequest
+class UpdateQuoteRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -19,7 +20,7 @@ class StoreQuoteRequest extends FormRequest
                 'required',
                 new MoreThanSomeSay,
                 'max:280',
-                'unique:quotes,body',
+                Rule::unique('quotes', 'body')->ignore(request()->route('quote')->id),
             ]
         ];
     }

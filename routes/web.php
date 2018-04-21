@@ -1,7 +1,11 @@
 <?php
 
 Route::get('/', 'QuotesController@index')->name('quotes.index');
+
 Route::post('/quotes', 'QuotesController@store')->name('quotes.store');
+Route::delete('/quotes/{quote}', 'QuotesController@destroy')->name('quotes.destroy')->middleware('can:delete,quote');
+Route::get('/quotes/{quote}/edit', 'QuotesController@edit')->name('quotes.edit')->middleware('can:edit,quote');
+Route::put('/quotes/{quote}', 'QuotesController@update')->name('quotes.update')->middleware('can:edit,quote');
 
 Route::get('login', 'Auth\LoginController@redirectToProvider')->name('auth.login');
 Route::get('login/callback', 'Auth\LoginController@handleProviderCallback');
