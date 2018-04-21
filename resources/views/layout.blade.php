@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#343a40">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="Description" content="Funny Stig Quotes">
     @env(['local', 'production'])
       <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     @endenv
