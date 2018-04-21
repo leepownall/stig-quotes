@@ -31,8 +31,21 @@ class User extends Authenticatable
         'token_secret',
     ];
 
+    /**
+     * @var array
+     */
+    protected $dates = [
+        'deleted_at',
+        'admin_at',
+    ];
+
     public function quotes(): HasMany
     {
         return $this->hasMany(Quote::class);
+    }
+
+    public function getIsAdminAttribute(): bool
+    {
+        return $this->admin_at !== null;
     }
 }

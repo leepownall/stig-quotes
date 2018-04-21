@@ -5,15 +5,16 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Quote extends Model
 {
+    use SoftDeletes;
+
     /**
      * @var array
      */
     protected $dates = [
-        'created_at',
-        'updated_at',
         'deleted_at',
     ];
 
@@ -45,7 +46,7 @@ class Quote extends Model
         $last = $this->tweets->last();
 
         return $last
-            ? "<a href='https://twitter.com/stigquotes/status/{$last->tweet_id}' target='_blank'>Last tweeted {$last->created_at->diffForHumans()}</a>"
+            ? "<a href='https://twitter.com/stigquotes/status/{$last->tweet_id}' target='_blank'>{$last->created_at->diffForHumans()}</a>"
             : '';
     }
 }

@@ -8,11 +8,11 @@
 @endif
 <form method="post" action="{{ route('quotes.store') }}">
   @csrf
-  <div class="input-group input-group-lg mb-3 pb-3 border-bottom">
+  <div class="input-group mb-3 pb-3 border-bottom">
     <div class="input-group-prepend">
       <span class="input-group-text">Some say</span>
     </div>
-    <input name="quote" type="text" class="form-control">
+    <input name="quote" type="text" class="form-control" value="{{ old('quote') }}">
     <div class="input-group-append">
       <button class="btn btn-success" type="submit">Submit</button>
     </div>
