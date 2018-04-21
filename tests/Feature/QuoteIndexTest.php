@@ -55,7 +55,7 @@ class QuoteIndexTest extends TestCase
         $this
             ->visitRoute('quotes.index')
             ->within('.card-footer', function () use ($tweet) {
-                $this->seeLink('Last tweeted 1 hour ago', "https://twitter.com/stigquotes/status/{$tweet->tweet_id}");
+                $this->seeLink('1 hour ago', "https://twitter.com/stigquotes/status/{$tweet->tweet_id}");
             });
     }
 }
