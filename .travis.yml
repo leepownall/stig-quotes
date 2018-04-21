@@ -2,12 +2,7 @@ language: php
 
 php:
   - 7.1
-  - hhvm
   - nightly
-
-matrix:
-  allow_failures:
-    - php: hhvm
 
 install:
   - composer require php-coveralls/php-coveralls
