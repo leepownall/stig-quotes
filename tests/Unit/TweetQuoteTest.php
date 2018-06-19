@@ -73,4 +73,22 @@ class TweetQuoteTest extends TestCase
 
         Artisan::call('quote:tweet', ['quote' => 232]);
     }
+    
+    /** @test **/
+    public function it_cannot_tweet_a_delete_quote()
+    {
+        $quoteA = factory(Quote::class)->create();
+        $quoteB = factory(Quote::class)->states('deleted')->create();
+
+        Twitter::shouldReceive('postTweet')
+            ->once()
+            ->with(['status' => $quoteA->body])
+            ->andReturn((object) ['id' => 1]);
+
+        Twitter::shouldReceive('postTweet')
+            ->never()
+            ->with(['status' => $quoteB->body]);
+
+        Artisan::call('quote:tweet');
+    }
 }
