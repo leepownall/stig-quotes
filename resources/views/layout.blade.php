@@ -18,7 +18,7 @@
       @yield('content')
     </main>
     @include('footer')
-    @env('local', 'production')
+    @env(['local', 'production'])
       <script src="{{ mix('js/app.js') }}"></script>
     @endenv
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ config('services.analytics.tracking_id') }}"></script>
